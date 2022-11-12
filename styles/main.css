@@ -27,10 +27,9 @@
   width: 350px;
   margin-left: 0;
   padding-left: 10px;
-  background-color:  #DDAB89;
-  opacity: 0.5;
+  background-color: rgba(221,171,137,.3);
   border-radius: 10px;
-  border: solid 1px #E27326;
+  border: solid 1px #B63D08;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -166,4 +165,11 @@
 cursor: pointer;
 border: solid 2px #B63D08;
 border-radius: 5%;
+background-color: rgba(221,171,137,.3);
+}
+
+.selected{
+  background-color: #E27326;
+  color: white;
+  border-radius: 5%;
 }
