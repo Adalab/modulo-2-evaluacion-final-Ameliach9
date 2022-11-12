@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <title>Breaking Bad</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/main.css">
-    <title>Breaking Bad Characters</title>
-</head>
-
-<body class="body">
+  <body class="body">
     <header>
-        <h1 class="title">Breaking Bad character status</h1>
+      <h1 class="title">Breaking Bad Character Status</h1>
+      <h2 class="header">Dead or Alive</h2>
+      <form class="js-form form">
+        <input
+          class="js-input input"
+          type="text"
+          name=""
+          id=""
+          placeholder="Example: Jesse Pinkman"
+          value=""/>
+        <input class="js-button searchButton" type="button" value="Search"/>
+      </form>
     </header>
-    <main>
-        <h2 class="subtitle">Dead, Alive, Wanted</h2>
-        <form class="js-form form">
-            <input class="js-input input" type="text" name="" id="" placeholder="Example: Jesse Pinkman"
-                value="">
-            <input class="js-button searchButton" type="button" value="Search">
-        </form>
-        <div class="grid">
-            <div class="column1">
-                <h2>Favorites</h2>
-                <ul class="js-favorites favoritesContainer"></ul>
-                <button class="js-reset resetButton">Reset</button>
-            </div>
-            <div class="column2 js-results"></div>
-
-        </div>
+    <main class="grid">
+      <section class="column1">
+        <h2>Favorites</h2>
+        <ul class="js-favorites favoritesContainer"></ul>
+        <button class="js-reset resetButton">Reset</button>
+      </section>
+      <section class="column2 js-results">
+        <h2>Characters</h2>
+        <ul class="characters_list js_all_characters"></ul>
+      </section>
     </main>
-
     <script src="./js/main.js"></script>
-</body>
-
+  </body>
 </html>
