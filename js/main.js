@@ -26,7 +26,7 @@ let favoriteCharacters = [];
   </li>`;
 }
 
-//charactersList.innerHTML = '';
+charactersList.innerHTML = '';
 
 //bucle recorre el array y va pintando a todos los personajes 
 function renderCharacters (character){ 
@@ -42,7 +42,7 @@ function addCharacterListener(){
   const charactersArticle = document.querySelectorAll('.js_characters');
   for( const eachCharacterArticle of charactersArticle){
   eachCharacterArticle.addEventListener('click',  handleClickCharacters);
- 
+  
   }}
 
 function renderfavoriteCharacters() {
@@ -63,6 +63,7 @@ function renderfavoriteCharacters() {
 function handleClickCharacters(event) {
 event.currentTarget.classList.toggle('selected');
 console.log(event.currentTarget.id);
+//handleClickCharacters(); -> no sé donde ejecutarla para que no me machaque los favoritos, en teoría se debería ejecutar al llamarla en la función addCharacterListener
 
 const selectedCharacter = characters.find (  
   (eachCharacterObj)  => parseInt(eachCharacterObj.char_id) === parseInt(event.currentTarget.id));
@@ -92,20 +93,34 @@ renderfavoriteCharacters();
 }
 
 
-
-
-//SEARCH
-
-form.addEventListener('submit', (event) => {
+/*searchBtn.addEventListener('click', (event)=> {
 event.preventDefault();
-});
+const userSearch = searchCharacter.value.toLowerCase();
+const filteredCharacters = characters.filter((character) =>
+character.name.toLowerCase().includes(userSearch)
+);
+renderCharacters(filteredCharacters)
+});/*
 
-searchCharacter.addEventListener('input', () => {
-  const userSearch = searchCharacter.value.toLowerCase();
-  console.log(userSearch);
-  const filteredCharacters = characters.filter((eachCharacter) => eachCharacter.name.toLowerCase().includes(userSearch));
-  renderCharacters(filteredCharacters);
-});
+//SEARCH searchBtn 
+/*function handleSearch(){
+  getDataFromApi();
+};*/
+
+function handleSearchBtn (event){
+  event.preventDefault();
+  const searchCharacter = document.querySelector('.js-input');
+  const inputValue = searchCharacter.value.toLowerCase();
+  console.log(inputValue);
+  const searchedNameList = characters.filter((character) => character.name.toLowerCase().includes(inputValue));
+  console.log(searchedNameList);
+  
+  
+  /*charactersList.innerHTML = '';
+  renderFirstCharacter(searchedNameList[i]);*/        
+  }
+  searchBtn.addEventListener('click', handleSearchBtn);
+
 
 
 //API
