@@ -102,10 +102,12 @@
   background: rgba(90, 178, 230, 0.5);
   border: solid 2px white;
   color: aliceblue;
-}
+}*/
 
 .favoritesContainer {
-  display: flex;
+  list-style-type: none;
+}
+  /*display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-left: 0;
