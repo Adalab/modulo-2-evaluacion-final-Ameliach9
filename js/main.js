@@ -40,16 +40,18 @@ function renderCharacters (){
 // arriba se le asigna la clase a todos los article que se generan
 //se crea el evento al que se le va a añadir el listener
 function handleClickCharacters(event) {
-  event.currentTarget.classList.toggle('selected');
- console.log(event.currentTarget.char_id);
+event.currentTarget.classList.toggle('selected');
+console.log(event.currentTarget.char_id);
 
 const selectedCharacter = characters.find(  
   (eachCharacterObj)  => eachCharacterObj.id === event.currentTarget.char_id);
-console.log(selectedCharacter);
 
+console.log(selectedCharacter);
 favorites.push(selectedCharacter);
+
 //renderFavoriteCharacters(); usaré esto como función luego 
 }
+
 
 //API
 fetch('https://breakingbadapi.com/api/characters')
