@@ -139,8 +139,8 @@
 
 }
 .characters__img{
-  width: 160px;
-  height:200px;
+  width: 180px;
+  height:190px;
   
 }
 .title-X {
@@ -152,7 +152,7 @@
 
 
 
-.characters__Article__Item{
+.characters__Article{
 cursor: pointer;
 border: solid 2px #B63D08;
 border-radius: 5%;
@@ -163,4 +163,10 @@ background-color: rgba(221,171,137,.3);
   background-color: #E27326;
   color: white;
   border-radius: 5%;
+}
+
+
+.characters__status{
+  margin-bottom:10px;
+  margin-top:0px;
 }
