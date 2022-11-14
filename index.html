@@ -9,21 +9,21 @@
   </head>
 
   <body class="body">
-    <header>
-      <h1 class="title">Breaking Bad Character Status</h1>
-      <h2 class="header">Dead or Alive</h2>
-      <form class="js-form form">
-        <input
-          class="js-input input"
-          type="text"
-          name=""
-          id=""
-          placeholder="Example: Jesse Pinkman"
-        />
-        <input class="js-button searchButton" type="button" value="Search" />
-      </form>
+    <header class="header">
     </header>
     <main class="grid">
+      <section>
+        <form class="js-form form">
+          <label for="search" class="search_label"></label>
+          <input
+            class="js-input input"
+            type="text"
+            name=""
+            id=""
+            placeholder="Example: Jesse Pinkman"/>
+          <input class="js-button searchButton" type="button" value="Search" />
+        </form>
+      </section>
       <section class="column1">
         <h2>Favorites</h2>
         <ul class="js-favorites favoritesContainer"></ul>
@@ -34,6 +34,10 @@
         <ul class="characters_list js_all_characters"></ul>
       </section>
     </main>
+    <footer class="footer">
+      <p class="footer-text"><span class="footer-text-span">Breaking Bad</span> is regarded as one of the greatest television series of all time, and with 16<span class="footer-text-span">primetime emmy awards.</span></p>
+      <p class="footer-text footer-text-span">&copy; Alejandra Ameliach 2022</p>
+    </footer>
     <script src="./js/main.js"></script>
   </body>
 </html>
