@@ -47,7 +47,6 @@ function addCharacterListener() {
 
 function renderfavoriteCharacters() {
   let html = "";
-
   for (let i = 0; i < favoriteCharacters.length; i++) {
     html += renderFirstCharacter(favoriteCharacters[i]);
   }
@@ -64,20 +63,20 @@ function renderfavoriteCharacters() {
 
 function handleClickCharacters(event) {
   event.currentTarget.classList.toggle("selected");
-  console.log(event.currentTarget.id);
+
 
   const selectedCharacter = characters.find(
     (eachCharacterObj) =>
       parseInt(eachCharacterObj.char_id) === parseInt(event.currentTarget.id)
   );
   //characters.forEach(characters => {debugger;}) me ayudó a ver qué se le estaba asignando y resolver el undefined
-  console.log(selectedCharacter);
+  
   //
   const characterInFavIndex = favoriteCharacters.findIndex(
     (eachCharacterObj) =>
       parseInt(eachCharacterObj.char_id) === parseInt(event.currentTarget.id)
   );
-  console.log(characterInFavIndex);
+  
 
   if (characterInFavIndex === -1) {
     favoriteCharacters.push(selectedCharacter);
@@ -96,26 +95,24 @@ function handleSearchBtn(event) {
   event.preventDefault();
   const searchCharacter = document.querySelector(".js-input");
   const inputValue = searchCharacter.value.toLowerCase();
-  console.log(inputValue);
   const searchedNameList = characters.filter((character) =>
   character.name.toLowerCase().includes(inputValue));
   renderCharacters(searchedNameList);
-  console.log(searchedNameList);
+  
  }
 searchBtn.addEventListener("click", handleSearchBtn);
 
-//BONUS----
-/*function handleResetBtn (event){
+//----BONUS RESET----
+  function handleResetBtn (event){
   event.preventDefault();
-  favorites = [];
-  savedFav();
-  renderCharacters();
-  renderfavoriteCharacters();
-
+  localStorage.removeItem("favoriteChar");
+  favoriteCharacters.length = [];
+  renderCharacters(characters)
+  favoritesListEl.innerHTML = " ";
 }
-resetBtn.addEventListener('click', handleReset);*/
+resetBtn.addEventListener( "click", handleResetBtn);
 
-//-----------------------------API (cuando se carga la página)-----------
+//-------------------------API (cuando se carga la página)-----------
 
 
 fetch("https://breakingbadapi.com/api/characters")
@@ -126,7 +123,6 @@ fetch("https://breakingbadapi.com/api/characters")
   });
 
 const savedFav = JSON.parse(localStorage.getItem("favoriteChar"));
-console.log(savedFav);
 if (savedFav !== null) {
   favoriteCharacters = savedFav;
   renderfavoriteCharacters();
