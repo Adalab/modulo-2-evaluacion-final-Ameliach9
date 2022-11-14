@@ -1,12 +1,13 @@
 
-# Breaking Bad Character status
+# Breaking Bad Character Status
 
 Hi there, Breaking Bad fans! 
+
 This project that's mocked up and developed with **HTML, CCS and JS** was created so that you can search and find out your favorite character status, dead or alive, you can also choose and save your favorites.
 
 By clicking the URL on this repository description you'll be redirected to the BB character status web.
 
-## What can I do?
+## Usage
 
 - **See all Breaking Bad characters and their status**: once the website loads it connects directly to an API (https://breakingbadapi.com/) which shows on screen a picture of all characters, their names and status. 
 
@@ -16,4 +17,4 @@ By clicking the URL on this repository description you'll be redirected to the B
 
 ## Thank You!
 
-I appreciate you checking out my Github repository. I hope you enjoyed this project. Any feedback will be highly appreciated as I'm learning how to code. 
+I appreciate you checking out my Github repository. I hope you enjoyed this project. Any feedback will be highly appreciated as I'm a coding student. 
