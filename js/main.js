@@ -6,12 +6,13 @@ const favoritesListEl = document.querySelector(".js-favorites");
 const searchCharacter = document.querySelector(".js-input");
 const form = document.querySelector(".js-form");
 const searchBtn = document.querySelector(".js-button");
+const resetBtn = document.querySelector(".js-reset");
 
-//Global var
+//---------------------GLOBAL VARIABLES--------------------
 let characters = [];
 let favoriteCharacters = [];
 
-//FUNCTIONS
+//----------------------FUNCTIONS--------------------------
 
 //Función que pinta para poder pasar parámetros, se usan en el bucle para pintar a todos los personajes
 function renderFirstCharacter(character) {
@@ -28,7 +29,7 @@ function renderFirstCharacter(character) {
 charactersList.innerHTML = "";
 
 //bucle recorre el array y va pintando a todos los personajes
-function renderCharacters(character) {
+function renderCharacters(characters) {
   let html = "";
   for (let i = 0; i < characters.length; i++) {
     html += renderFirstCharacter(characters[i]);
@@ -51,20 +52,19 @@ function renderfavoriteCharacters() {
     html += renderFirstCharacter(favoriteCharacters[i]);
   }
   favoritesListEl.innerHTML = html;
-} 
-
+}
 
 //el querySelectorAll crea un array con todos los elementos article de cada personaje
 //se crea un bucle for para poner un event listener a cada article
 // arriba se le asigna la clase a todos los article que se generan
 //se crea el evento al que se le va a añadir el listener
 
-//EVENTOS
-function handleClickCharacters(event) {
+//---------------------------------EVENTOS-----------------------------------
 
+
+function handleClickCharacters(event) {
   event.currentTarget.classList.toggle("selected");
   console.log(event.currentTarget.id);
-  //handleClickCharacters(); 
 
   const selectedCharacter = characters.find(
     (eachCharacterObj) =>
@@ -84,13 +84,11 @@ function handleClickCharacters(event) {
 
     localStorage.setItem("favoriteChar", JSON.stringify(favoriteCharacters));
   }
-  //BONUS
+                            //----------------BONUS-------------------
   else {
     favoriteCharacters.splice(characterInFavIndex, 1);
     localStorage.setItem("favoriteChar", JSON.stringify(favoriteCharacters));
   }
-
-  //renderCharacters();
   renderfavoriteCharacters();
 }
 
@@ -100,26 +98,36 @@ function handleSearchBtn(event) {
   const inputValue = searchCharacter.value.toLowerCase();
   console.log(inputValue);
   const searchedNameList = characters.filter((character) =>
-    character.name.toLowerCase().includes(inputValue)
-  );
+  character.name.toLowerCase().includes(inputValue));
+  renderCharacters(searchedNameList);
   console.log(searchedNameList);
-
-  /*charactersList.innerHTML = '';
-  renderFirstCharacter(searchedNameList[i]);*/
-}
+ }
 searchBtn.addEventListener("click", handleSearchBtn);
 
-//API
+//BONUS----
+/*function handleResetBtn (event){
+  event.preventDefault();
+  favorites = [];
+  savedFav();
+  renderCharacters();
+  renderfavoriteCharacters();
+
+}
+resetBtn.addEventListener('click', handleReset);*/
+
+//-----------------------------API (cuando se carga la página)-----------
+
+
 fetch("https://breakingbadapi.com/api/characters")
   .then((response) => response.json())
   .then((data) => {
     characters = data;
-    renderCharacters();
+    renderCharacters(characters);
   });
 
 const savedFav = JSON.parse(localStorage.getItem("favoriteChar"));
 console.log(savedFav);
-if (savedFav !== null  ){
-favoriteCharacters = savedFav;
-renderfavoriteCharacters(); 
+if (savedFav !== null) {
+  favoriteCharacters = savedFav;
+  renderfavoriteCharacters();
 }
