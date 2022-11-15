@@ -105,15 +105,16 @@ function handleSearchBtn(event) {
 searchBtn.addEventListener("click", handleSearchBtn);
 
 //BONUS----
-/*function handleResetBtn (event){
+function handleResetBtn (event){
   event.preventDefault();
-  favorites = [];
-  savedFav();
-  renderCharacters();
-  renderfavoriteCharacters();
-
+  localStorage.removeItem("favoriteChar");
+  favoriteCharacters.length = [];
+  renderCharacters(characters);
+  favoritesListEl.innerHTML = "";
 }
-resetBtn.addEventListener('click', handleReset);*/
+  
+
+resetBtn.addEventListener('click', handleResetBtn);
 
 //-----------------------------API (cuando se carga la página)-----------
 
